@@ -53,6 +53,7 @@ jobs:
         run: |
           mvn -B spring-boot:build-image \
             --file pom.xml \
+            -Pnative \
             -Dspring-boot.build-image.imageName=${{ steps.prep.outputs.ghcr_image }}:${{ steps.prep.outputs.version }} \
             -Dspring-boot.build-image.publish=true
 
