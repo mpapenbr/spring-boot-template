@@ -60,6 +60,10 @@ jobs:
         env:
           DOCKER_REGISTRY_USERNAME: ${{ github.repository_owner }}
           DOCKER_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          BP_OCI_VERSION: ${{ steps.prep.outputs.version }}
+          BP_OCI_CREATED: ${{ steps.prep.outputs.created }}
+          BP_OCI_REVISION: ${{ github.sha }}
+
 
 
       # - name: Setup docker buildx

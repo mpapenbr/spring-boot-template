@@ -59,7 +59,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<imageBuilder>paketobuildpacks/builder:0.1.303-tiny</imageBuilder>
+					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+					<image>
+						<BP_JVM_VERSION>17</BP_JVM_VERSION>
+						<BP_OCI_DESCRIPTION>Just some demo image</BP_OCI_DESCRIPTION>
+						<BP_OCI_CREATED>${env.BP_OCI_CREATED}</BP_OCI_CREATED>
+						<!-- <BP_IMAGE_LABELS>${env.BP_IMAGE_LABELS}</BP_IMAGE_LABELS> -->
+						<BP_OCI_VERSION>${env.BP_OCI_VERSION}</BP_OCI_VERSION>
+						<BP_OCI_REVISION>${env.BP_OCI_REVISION}</BP_OCI_REVISION>
+					</image>
 					<docker>
 						<publishRegistry>
                             <username>${env.DOCKER_REGISTRY_USERNAME}</username>
