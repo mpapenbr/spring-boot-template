@@ -61,12 +61,14 @@
 				<configuration>
 					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 					<image>
-						<BP_JVM_VERSION>17</BP_JVM_VERSION>
-						<BP_OCI_DESCRIPTION>Just some demo image</BP_OCI_DESCRIPTION>
-						<BP_OCI_CREATED>${env.BP_OCI_CREATED}</BP_OCI_CREATED>
-						<!-- <BP_IMAGE_LABELS>${env.BP_IMAGE_LABELS}</BP_IMAGE_LABELS> -->
-						<BP_OCI_VERSION>${env.BP_OCI_VERSION}</BP_OCI_VERSION>
-						<BP_OCI_REVISION>${env.BP_OCI_REVISION}</BP_OCI_REVISION>
+						<env>
+							<BP_JVM_VERSION>17</BP_JVM_VERSION>
+							<BP_OCI_DESCRIPTION>Just some demo image</BP_OCI_DESCRIPTION>
+							<BP_OCI_CREATED>${env.BP_OCI_CREATED}</BP_OCI_CREATED>
+							<!-- <BP_IMAGE_LABELS>${env.BP_IMAGE_LABELS}</BP_IMAGE_LABELS> -->
+							<BP_OCI_VERSION>${env.BP_OCI_VERSION}</BP_OCI_VERSION>
+							<BP_OCI_REVISION>${env.BP_OCI_REVISION}</BP_OCI_REVISION>
+						</env>
 					</image>
 					<docker>
 						<publishRegistry>
