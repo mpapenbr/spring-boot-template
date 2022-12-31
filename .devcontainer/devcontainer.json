@@ -1,0 +1,51 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/java
+{
+  "name": "Java",
+  "image": "mcr.microsoft.com/devcontainers/java:17",
+  
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+  
+    "java.jdt.ls.java.home": "/docker-java-home",
+    "editor.formatOnSave": true,
+    "[java]": {
+      "editor.suggest.snippetsPreventQuickSuggestions": false,
+      "editor.defaultFormatter": "redhat.java",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+      }
+    }
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "vscjava.vscode-java-pack",
+    "Pivotal.vscode-boot-dev-pack",
+    "redhat.fabric8-analytics",
+    "gabrielbb.vscode-lombok",
+    "eamodio.gitlens",
+    "GitHub.vscode-pull-request-github"
+  ],
+  "containerEnv": {
+    "TZ": "Europe/Berlin"
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [
+    8080
+    // 8081,
+  ],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "./devinit.sh",
+  // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "vscode",
+  "runArgs": ["--network=host"],
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker": "20.10",
+    "ghcr.io/devcontainers/features/java": {
+      "version": "none",
+      "installMaven": true,
+      "mavenVersion": "3.8.6"
+    }
+  }
+}
